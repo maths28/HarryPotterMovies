@@ -1,0 +1,38 @@
+<div>
+  <form [formGroup]="formFilter">
+    <legend>Filtres</legend>
+    <label for="title">Titre</label> <input type="text" id="title" formControlName="title">
+    <label for="releasedYear">Année de sortie</label> <input type="text" id="releasedYear" formControlName="releasedYear">
+  </form>
+</div>
+@if (movies){
+  <table>
+    <thead>
+    <tr>
+      <th>Titre</th>
+      <th>Date de sortie</th>
+      <th>Budget</th>
+      <th>Durée</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (movie of movies; track movie.id){
+        <tr>
+          <td>{{movie.title}}</td>
+          <td>{{movie.release_date|date:'shortDate'}}</td>
+          <td>{{movie.budget|millionDollar}}</td>
+          <td>{{movie.duration|duration}}</td>
+          <td><button>Details</button></td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" class="empty-list">Aucun film ne correspond aux critères demandées</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="spinner"></div>
+}
+
