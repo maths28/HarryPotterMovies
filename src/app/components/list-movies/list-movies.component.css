@@ -1,3 +1,8 @@
 .empty-list {
   text-align: center;
 }
+
+table {
+  max-height: none;
+  overflow-x: hidden;
+}

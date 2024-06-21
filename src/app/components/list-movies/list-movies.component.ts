@@ -7,6 +7,7 @@ import {MillionDollarPipe} from "../../pipes/million-dollar.pipe";
 import {DurationPipe} from "../../pipes/duration.pipe";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import dayjs from "dayjs";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-list-movies',
@@ -17,7 +18,8 @@ import dayjs from "dayjs";
     MillionDollarPipe,
     CurrencyPipe,
     DurationPipe,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './list-movies.component.html',
   styleUrl: './list-movies.component.css'

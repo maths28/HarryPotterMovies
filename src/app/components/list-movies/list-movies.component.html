@@ -23,7 +23,7 @@
           <td>{{movie.release_date|date:'shortDate'}}</td>
           <td>{{movie.budget|millionDollar}}</td>
           <td>{{movie.duration|duration}}</td>
-          <td><button>Details</button></td>
+          <td><button routerLink="/details-movie/{{movie.id}}">Details</button></td>
         </tr>
       } @empty {
         <tr>

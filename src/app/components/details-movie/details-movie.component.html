@@ -1,0 +1,39 @@
+<div id="details-movie-section">
+  <button routerLink="/"><span class="icon-home"></span>Retour</button>
+  @if(movie$ | async; as movie) {
+    @if(movie.id){
+      <h1>{{movie.title}}</h1>
+      <figure>
+        <img [src]="movie.poster" alt="Image description"/>
+        <figcaption><b>Description : </b> {{movie.summary}}</figcaption>
+      </figure>
+
+      <table class="horizontal">
+        <caption>Détails</caption>
+        <thead>
+        <tr>
+          <th>Box office</th>
+          <th>Budget</th>
+          <th>Durée</th>
+          <th>Producteurs</th>
+          <th>Cinéastes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ movie.box_office | millionDollar }}</td>
+          <td>{{movie.budget | millionDollar}}</td>
+          <td>{{movie.duration|duration}}</td>
+          <td>{{movie.producers|concatStrings:', '}}</td>
+          <td>{{movie.cinematographers|concatStrings:', '}}</td>
+        </tr>
+        </tbody>
+      </table>
+    } @else {
+      <div id="movie-not-found">Le film que vous recherchez est introuvable</div>
+    }
+
+  } @else {
+    <div class="spinner"></div>
+  }
+</div>

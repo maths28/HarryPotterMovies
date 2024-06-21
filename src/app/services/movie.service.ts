@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {Movie, ResumeMovie} from "../models/movie.model";
 
 @Injectable({
@@ -12,5 +12,12 @@ export class MovieService {
 
   getList(): Observable<ResumeMovie[]> {
     return this.http.get<ResumeMovie[]>('/movies');
+  }
+
+  getMovie(movieId: string): Observable<Movie> {
+    return this.http.get<Movie|null>(`/movies/${movieId}`)
+      .pipe(
+        map((value: Movie|null) => value ?? {} as Movie)
+      )
   }
 }

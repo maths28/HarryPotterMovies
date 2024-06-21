@@ -1,0 +1,18 @@
+figure img {
+  width: 25%;
+  height: 25%;
+}
+
+figure {
+  display: flex;
+  align-items: center;
+}
+
+#movie-not-found {
+  text-align: center;
+}
+
+#details-movie-section{
+  width: 70%;
+  margin: 0 15%;
+}
