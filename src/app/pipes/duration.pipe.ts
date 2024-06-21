@@ -11,10 +11,10 @@ export class DurationPipe implements PipeTransform {
       return '0min';
     }
 
-    const hours = Math.floor(value / 60);
-    const minutes = value % 60;
+    const hours : number = Math.floor(value / 60);
+    const minutes : number = value % 60;
 
-    let result = '';
+    let result : string = '';
     if (hours > 0) {
       result += `${hours}h`;
     }

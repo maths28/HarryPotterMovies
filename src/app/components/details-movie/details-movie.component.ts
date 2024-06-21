@@ -22,8 +22,8 @@ import {RouterLink} from "@angular/router";
   styleUrl: './details-movie.component.css'
 })
 export class DetailsMovieComponent implements OnInit{
-  @Input('id') movieId: string;
-  movie$: Observable<Movie|undefined>;
+  @Input('id') private movieId: string;
+  movie$: Observable<Movie>;
 
   constructor(private movieService : MovieService) {
   }
